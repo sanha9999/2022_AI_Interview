@@ -1,6 +1,27 @@
 # AI 개발관련 지식
+## Non-Linearity라는 말의 의미와 그 필요성은?
+Non-Linearity는 비 선형성이라는 뜻이다. 데이터의 복잡도가 높아지고 차원이 높아지게 되면 데이터의 분포는 단순한 선형이 아닌 비 선형 형태를 가지기 때문에 단순한 1차식의 형태로는 데이터를 표현할 수 없기에 Non-Linearity가 중요하다.
+
+## Sigmoid보다 ReLU를 많이 쓰는 이유는?
+Sigmoid의 문제점으로는 입력 값이 일정 범위를 넘어가게 되면 0또는 1로 수렴해버리고 gradient가 0으로 수렴해 버리게 되어 학습이 제대로 되지 않는다. 또한 Sigmoid는 범위가 0에서 1이기 때문에 중앙값이 0이 아니게 된다. 0을 기준으로 데이터가 분포하게 되었을 때가 이상적인데 Sigmoid는 그것을 만족시키지 못한다. 또한 ReLU보다 연산에 많은 cost가 소모된다.
+
+## ReLU는 그래프만 보면 곡선이 아닌 것 같은데 어떻게 Non-Linearity인가?
+ReLU를 보면 단순 Linear 형태인 듯 보이지만, Multi-layer의 activation function으로 ReLU를 사용하게 되면 Linear 한 부분 부분의 결합의 합성 함수가 만들어 지게 되는데, 이 결합 구간을 보았을 때 최종적으로 Non-Linearity한 성질을 가지게 된다.
+
+## ReLU의 문제점은?
+ReLU의 문제점은 원래 ReLU가 max(0, x)이기 때문에 0보다 작으면 함수 미분값이 0이된다는 약점이 있다. 이 문제를 해결하기 위해 LeakyReLU라는 함수가 만들어졌다.
+
+## Bias는 뭘까?
+Bias는 모델이 데이터에 잘 fitting하게 하기 위하여 평행 이동하는 역할을 한다. 데이터를 2차원으로 표현했을 때, 모든 데이터가 원점기준에 분포해 있지는 않기 때문에 Bias를 이용하여 모델이 평면 상에서 이동할 수 있도록 하고, 이 Bias또한 학습하게 한다.
+
 ## Gradient Descent란?
 Gradient Descent, 즉 경사 하강 알고리즘은 Cost Function(비용 함수)의 값을 최소화하는 파라미터를 찾는 알고리즘이다. 기본적인 개념은 함수의 기울기를 구하여 기울기가 낮은 쪽으로 계속 이동시켜 최적값에 이를 때까지 반복하는 것이다. Gradient Descent의 약점은 현재 위치에서의 기울기를 사용하기 때문에 local minimum에 빠질 수 있다는 점이다. 그래서 추후에 모멘텀이라는 방식이 등장하게 된다.
+
+## Gradient Descent를 써야하는 이유는?
+gradient를 통해 계산된 loss를 줄이기 위해, 역전파를 토대로 파라미터 값을 업데이트 하기 때문에 GD는 필수적으로 써야한다.
+
+## Gradient Descent 종류에 대한 각각을 설명한다면?
+![참조](https://www.dropbox.com/s/k03ffo5rjlwc03z/optimizers.png?raw=1)
 
 ## Loss Surface란?
 모델을 훈련시킨다는 말은 비용 함수에서 파라미터를 업데이트하며 global minimum을 찾는 과정이다. Loss Surface란 global minimum을 찾아가는 과정을 시각화한 것으로, 모델을 이해하고 설계하는데 인사이트를 준다.
