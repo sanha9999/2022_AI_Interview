@@ -1,4 +1,7 @@
 # AI 개발관련 지식
+## 하이퍼 파라미터는 무엇인가?
+하이퍼 파라미터는 모델의 학습에 필요한 수동 설정값이다.
+
 ## Non-Linearity라는 말의 의미와 그 필요성은?
 Non-Linearity는 비 선형성이라는 뜻이다. 데이터의 복잡도가 높아지고 차원이 높아지게 되면 데이터의 분포는 단순한 선형이 아닌 비 선형 형태를 가지기 때문에 단순한 1차식의 형태로는 데이터를 표현할 수 없기에 Non-Linearity가 중요하다.
 
@@ -26,6 +29,15 @@ gradient를 통해 계산된 loss를 줄이기 위해, 역전파를 토대로 �
 ## Loss Surface란?
 모델을 훈련시킨다는 말은 비용 함수에서 파라미터를 업데이트하며 global minimum을 찾는 과정이다. Loss Surface란 global minimum을 찾아가는 과정을 시각화한 것으로, 모델을 이해하고 설계하는데 인사이트를 준다.
 
+## Dropout이란?
+Dropout은 노드들의 연결을 무작위로 끊는 방식으로, 하나의 노드가 너무 큰 가중치를 가져 다른 노드들의 학습을 방해하는 현상을 억제한다. 이를 통해 모델의 일반화 성능을 높이고 Overfitting을 방지하는 효과를 얻을 수 있다. 
+
+## Average Pooling과 Max Pooling의 차이점은?
+Pooling은 Feature map에서 feature 수를 감소시키는 역할을 한다. Average Pooling은 kernel window에 해당하는 값들의 평균을 대표로, Max Pooling은 가장 큰 값을 대표로 feature 수를 감소시킨다. Max pooling은 kernel 영역 내에서 가장 두드러지는 값을 남기고, average는 영역 내의 모든 값을 고려하는 효과가 있다.
+
+## Localization이란?
+Object detection에서 검출한 객체의 위치 정보를 예측하는 것을 의미한다. 네트워크의 output vector에 좌표 정보를 출력하게끔 학습할 수 있다.
+
 ## Attention이란?
 RNN에 기반한 모델이 가지고 있는 문제는 기울기 소실(Vanishing Gradient)과 정보 손실 문제이다. 이로 인해 input으로 들어가는 문장이 길어지면 품질이 떨어지는 현상이 나타난다. 이를 해결하기 위해 등장한 방법이 바로 Attention이다. Attention mechanism은, 디코더에서 출력 단어를 예측하는 매 시점마다 인코더에서의 전체 입력 문장 중 해당 시점에서 예측해야 할 단어와 연관성있는 부분을 좀 더 집중해서 보는 것이다.
 
@@ -42,3 +54,6 @@ Few-Shot Learning은 쉽게 말하자면 훈련을 통해 class를 분류하는 
 
 ## Federated Learning이란?
 Federated Learning이란 "연합 학습"으로써 다수의 로컬 클라이언트와 하나의 중앙 서버가 협력하여 데이터가 탈중앙화된 상황에서 글로벌 모델을 학습하는 기술이다. 여기서 로컬 클라이언트는 사물 인터넷 기기, 스마트 폰 등을 말한다. Federated Learning은 데이터 프라이버시 향상과 커뮤니케이션 효율성, 이 두 가지 장점때문에 굉장히 유용하다.
+
+## 딥러닝을 할 때 GPU를 쓰는 이유는?
+GPU에는 부동소수점 계산에 특화된 수많은 코어가 있어서 병렬 처리를 수행하기에 유리하기 때문이다.
