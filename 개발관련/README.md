@@ -1,4 +1,23 @@
 # AI 개발관련 지식
+## 딥러닝은 무엇이고 머신러닝과 차이는 무엇인가?
+딥러닝은 인공신경망을 깊은 구조로 설계하여 비선형성이 높은 문제들을 해결하는 방법을 통칭한다. 딥러닝은 머신러닝의 일종이며 모델 내부의 결정 과정을 해석하기 불가능한 **블랙박스**구조로 되어있다. 보통, 딥러닝이 일반적인 머신러닝 기법보다 더 많은 데이터를 필요로하며 계산량이 압도적으로 많다.
+
+## 딥러닝에서 '표현을 학습하다'의 의미는 무엇인가?
+머신러닝/딥러닝의 표현이란 데이터를 인코딩하거나 묘사하기 위해 데이터를 바라보는 다른 방법을 말한다.
+
+## Cost Function과 Activation Function은 무엇인가?
+Cost Function은 모델이 도출한 결과(output)와 목표 결과(target)를 어떻게 비교할 것인가를 의미한다. 두 결과의 차이를 의미하는 Cost는 Optimizer에 의해 Parameter가 갱신될 때, Step size를 얼마나 크게 가져갈 것인가에 결정적인 영향을 끼친다. Activation Function은 뉴런이 유입되는 신호로부터 도출하는 값을 정제하는 역할을 한다. Activation Function의 종류에는 sigmoid, Relu, Hyperbolic Tangent 등이 있다. 
+
+## Local Minima와 Global Minima는 무엇인가?
+Global minima는 Gradient Descent 방법으로 학습시에, 해당 도메인에 대해 가장 낮은 cost를 가질 수 있는 weight가 위치한 지점이다. Local Minima는 Gradient Descent로 Global Minima를 찾아가는 과정에서 주변에 지역적으로 Gradient 하강, 상승 구간이 존재하여 빠질 수 있는 가짜 Minima이다.
+
+## 차원의 저주란 무엇인가?
+차원의 저주는 한 샘플을 특정짓기 위해 많은 정보(다양한 차원의)를 수집할수록 오히려 데이터 사이의 거리가 멀어져 차원에 빈공간이 생기기 때문에 학습이 어려워지는 문제이다. 해결방법은 데이터의 밀도가 높아질때까지 데이터를 모아 훈련 세트를 키우거나, PCA같은 차원 축소 기법을 이용하여 해결한다.
+
+## PCA기법은 무엇인가?
+고차원의 데이터를 저차원의 데이터로 축소시키는 차원 축소 방법중 하나로, 훈련 데이터의 많은 feature중 중요한 feature 몇개만 뽑아내는 방법이 PCA이다. [블로그](https://bkshin.tistory.com/entry/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D-9-PCA-Principal-Components-Analysis)에서 잘 정리되어있다.
+
+
 ## 하이퍼 파라미터는 무엇인가?
 하이퍼 파라미터는 모델의 학습에 필요한 수동 설정값이다.
 
@@ -22,6 +41,12 @@ Bias는 모델이 데이터에 잘 fitting하게 하기 위하여 평행 이동�
 
 ## Batch Normalization이란?
 Batch Normalization, 즉 배치 정규화는 평균과 분산을 조정하는 과정이 별도의 과정으로 떼어진 것이 아닌 신경망 안에 포함되어 학습시 평균과 분산을 조정한다. 즉 각 레이어마다 정규화하는 레이어를 두는 것이 배치 정규화이다.
+
+## Data Normalization은 무엇인가?
+Data Normalization은 입력 데이터의 최소, 최대값을 일정 범위(0~1) 내로 조절하는 것이다. 이를 통해 특정 데이터가 결과에 대해 과도한 영향을 미칠 수 있는 지위를 획득하는 것을 방지할 수 있고, 모델의 학습을 원할하게 만든다.
+
+## Weight Initialization이란 무엇인가?
+Weight Initialization은 가중치 초기화라는 뜻으로, 딥러닝 학습에 있어 초기 가중치 설정은 매우 종요한 역할을 한다. 가중치를 잘못 설정할 경우 기울기 소실 문제나 표현력의 한계를 갖는 등 여러 문제를 야기할 수 있기 때문이다. Weight Initialization을 통해 Local minimum에 빠지는 문제를 해결할 수 있다.
 
 ## Gradient Descent란?
 Gradient Descent, 즉 경사 하강 알고리즘은 Cost Function(비용 함수)의 값을 최소화하는 파라미터를 찾는 알고리즘이다. 기본적인 개념은 함수의 기울기를 구하여 기울기가 낮은 쪽으로 계속 이동시켜 최적값에 이를 때까지 반복하는 것이다. Gradient Descent의 약점은 현재 위치에서의 기울기를 사용하기 때문에 local minimum에 빠질 수 있다는 점이다. 그래서 추후에 모멘텀이라는 방식이 등장하게 된다.
