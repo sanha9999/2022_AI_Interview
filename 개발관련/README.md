@@ -29,7 +29,6 @@ Global minima는 Gradient Descent 방법으로 학습시에, 해당 도메인에
 ## PCA기법은 무엇인가?
 고차원의 데이터를 저차원의 데이터로 축소시키는 차원 축소 방법중 하나로, 훈련 데이터의 많은 feature중 중요한 feature 몇개만 뽑아내는 방법이 PCA이다. [블로그](https://bkshin.tistory.com/entry/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D-9-PCA-Principal-Components-Analysis)에서 잘 정리되어있다.
 
-
 ## 하이퍼 파라미터는 무엇인가?
 하이퍼 파라미터는 모델의 학습에 필요한 수동 설정값이다.
 
@@ -148,3 +147,6 @@ Federated Learning이란 "연합 학습"으로써 다수의 로컬 클라이언�
 
 ## Occlusion이란?
 Object tracking 분야에서 물체가 겹치거나 가려 인식을 못하는 경우를 말한다.
+
+## self-supervised learning이란?
+label이 없는 Untagged data를 기반으로 한 학습으로 자기 스스로 학습 데이터에 대한 분류를 수행하기 때문에 self가 붙는다. [관련링크](https://lifeisenjoyable.tistory.com/15)
