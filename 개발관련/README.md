@@ -110,8 +110,20 @@ Test data에 Training data와 일치하거나, 매우 유사한 데이터들이 
 ## Validation 세트가 따로 있는 이유는?
 모델 학습 과정 중, Training data와 분리된 Validation data로 모델을 평가하여 그 결과를 학습에 반영하므로써 Training Data에 대한 Overfitting을 방지하는 효과가 있다.
 
+## Gradient Vanishing이란?
+깊은 인공 신경망을 학습하다보면 역전파 과정에서 입력층으로 갈 수 록 기울기가 점차적으로 작아지는 현상이 발생하는데, 입력층에 가까운 층들에서 가중치가 제대로 업데이트되지 않으면 최적의 모델을 찾을 수 없다. 이를 기울기 소실(Gradient vanishing)이라고 한다.
+
+## Gradient Exploding
+기울기가 점처 커지더니 가중치들이 비정상적으로 큰 값이 되면서 발산되는 현상을 기울기 폭주(Gradient Exploding)라고 한다. 
+
 ## Dropout이란?
-Dropout은 노드들의 연결을 무작위로 끊는 방식으로, 하나의 노드가 너무 큰 가중치를 가져 다른 노드들의 학습을 방해하는 현상을 억제한다. 이를 통해 모델의 일반화 성능을 높이고 Overfitting을 방지하는 효과를 얻을 수 있다. 
+Dropout은 노드들의 연결을 무작위로 끊는 방식으로, 하나의 노드가 너무 큰 가중치를 가져 다른 노드들의 학습을 방해하는 현상을 억제한다. 이를 통해 모델의 일반화 성능을 높이고 Overfitting을 방지하는 효과를 얻을 수 있다.
+
+## Gradient clipping이란?
+학습하고자 하는 모델이 RNN이나 DNN같은 비선형 목적 함수를 가지고 있을 때 미분값이 매우 크거나 작아지는 경향이 있다. 이러한 결과는 여태 진행했던 학습 Epoch가 무효화 될 수 있어 모델 학습시 loss nan 문제를 겪을 수 있다. Gradient clipping이란 Gradient의 최대 갯수를 제한하고, Gradient가 최대치를 넘게 되면 Gradient의 크기를 재조정하는 것이다. 이러한 Gradient Clipping은 최적화 알고리즘이 가야하는 방향은 그대로 유지하면서 업데이트되야하는 step의 크기(learning rate)를 자동으로 조정하게 된다.
+
+## Gradient Accumulation이란?
+미니 배치를 통해 구해진 Gradient를 n-step동안 Global Gradients에 누적시킨 후, 한번에 업데이트하는 방법이다. [관련 블로그](https://velog.io/@twinjuy/OOM%EB%A5%BC-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%9C-Batch-Accumulation)
 
 ## Average Pooling과 Max Pooling의 차이점은?
 Pooling은 Feature map에서 feature 수를 감소시키는 역할을 한다. Average Pooling은 kernel window에 해당하는 값들의 평균을 대표로, Max Pooling은 가장 큰 값을 대표로 feature 수를 감소시킨다. Max pooling은 kernel 영역 내에서 가장 두드러지는 값을 남기고, average는 영역 내의 모든 값을 고려하는 효과가 있다.
