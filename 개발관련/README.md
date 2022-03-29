@@ -162,3 +162,9 @@ Object tracking 분야에서 물체가 겹치거나 가려 인식을 못하는 �
 
 ## self-supervised learning이란?
 label이 없는 Untagged data를 기반으로 한 학습으로 자기 스스로 학습 데이터에 대한 분류를 수행하기 때문에 self가 붙는다. [관련링크](https://lifeisenjoyable.tistory.com/15)
+
+## DataLoader에서 num_workers 파라미터는 대체 무엇일까?
+num_workers는 멀티 프로세싱과 관련된 파라미터로, 머신러닝 학습을 좀 더 빠르게 진행하는데 사용하는 GPU는 기본적으로 CPU의 컨트롤을 받기 때문에 CPU의 성능도 GPU의 성능에 지대한 영향을 줄 수 있다. num_workers는 학습 도중 CPU의 작업을 몇 개의 코어를 사용해서 진행할지에 대한 설정 파라미터이다. [추천글](https://jybaek.tistory.com/799)
+
+## torch.no_grad()의 의미는 무엇일까?
+torch.no_grad() 함수는 gradient계산에서 context를 비활성화 해주는 역할을 한다고 한다. 그래서 이 함수를 사용해 줌으로써 필요한 메모리가 줄어들고 연산속도가 증가하게 된다.
