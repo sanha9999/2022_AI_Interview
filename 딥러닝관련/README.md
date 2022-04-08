@@ -171,3 +171,6 @@ torch.no_grad() 함수는 gradient계산에서 context를 비활성화 해주는
 
 ## inductive biases란?
 만나지 못한 상황을 해결하기 위해, 추가적인 가정을 활용해서 문제를 해결하는 방법이다. 예를들면 CNN은 지역성(Locality)를 공간적인 문제를 풀고, RNN은 순차성(Sequentiality)라는 가정으로 통해 시계열 문제를 해결한다. 
+
+## Early Stopping이란?
+Epoch를 어떻게 설정해야하는가에 따른 딜레마가 있기 때문에 무조건 Epoch를 많이 돌린 후 특정 시점에서 멈추는 것이다. 그 특정시점을 정하는 방법은 validation set에서의 성능이 더이상 증가하지 않을 때 중지시키는 것이 일반적이다.
