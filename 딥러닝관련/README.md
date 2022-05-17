@@ -174,3 +174,6 @@ torch.no_grad() 함수는 gradient계산에서 context를 비활성화 해주는
 
 ## Early Stopping이란?
 Epoch를 어떻게 설정해야하는가에 따른 딜레마가 있기 때문에 무조건 Epoch를 많이 돌린 후 특정 시점에서 멈추는 것이다. 그 특정시점을 정하는 방법은 validation set에서의 성능이 더이상 증가하지 않을 때 중지시키는 것이 일반적이다.
+
+## NMS란?
+NMS는 Non-maximum suppression의 약자로 Object detection분야에서 주어진 bbox의 집합이 주어졌을 때, 최종적으로 남길 bbox를 담을 리스트를 생성하고 전체 집합에서 삭제하고 최종 리스트에 추가하고 class score가 너무 낮은 bbox또한 전체 집합에서 삭제하는 역할을 한다. 또한 최종 리스트에서 가장 class sore가 높은 bbox와 전체 집합에 담긴 bbox의 IOU를 계산하여 주어진 임계치보다 크다면 B에서 제거하는 역할을 한다.
