@@ -177,3 +177,6 @@ Epoch를 어떻게 설정해야하는가에 따른 딜레마가 있기 때문에
 
 ## NMS란?
 NMS는 Non-maximum suppression의 약자로 Object detection분야에서 주어진 bbox의 집합이 주어졌을 때, 최종적으로 남길 bbox를 담을 리스트를 생성하고 전체 집합에서 삭제하고 최종 리스트에 추가하고 class score가 너무 낮은 bbox또한 전체 집합에서 삭제하는 역할을 한다. 또한 최종 리스트에서 가장 class sore가 높은 bbox와 전체 집합에 담긴 bbox의 IOU를 계산하여 주어진 임계치보다 크다면 B에서 제거하는 역할을 한다.
+
+## Dliated Convolution
+Dliated Convolution는 간단히 말하자면 기존 Convolution filter가 수용하는 픽셀 가이에 간격을 둔 형태이다. 입력 픽셀 수는 동일하지만 더 넗은 범위에 대한 입력을 수용할 수 있게된다. Segmentation 분야에서 많이쓰인다.
